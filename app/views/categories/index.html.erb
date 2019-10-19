@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-3 col-md-offset-3">
+    <%= search_form_for @q do |f| %>
+      <%= f.text_field :name_cont, placeholder: t(:search_by_category),
+      class: "form-control" %>
+      <%= f.submit t(:search), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t :categories %></h3>
+  </div>
+  <% if @categories.any? %>
+    <div class="list-group">
+      <%= render @categories %>
+    </div>
+  <div class="text-center">
+    <%= paginate @categories %>
+  </div>
+<% end %>
+</div>
+

@@ -1,0 +1,12 @@
+<% @users.each_with_index do |user, index| %>
+  <tr>
+    <td><%= create_index params[:page], index, Settings.user_per_page %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td>
+      <%= link_to t(:edit), edit_admin_user_path(user), class: "btn btn-primary" %>
+      <%= link_to t(:delete), admin_user_path(user), class: "btn btn-danger",
+        method: :delete, data: { confirm: t(:sure)}  %>
+    </td>
+  </tr>
+<% end %>

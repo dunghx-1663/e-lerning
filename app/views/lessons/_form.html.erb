@@ -1,0 +1,67 @@
+<style>
+#demo {
+  font-size: 60px;
+  margin-top: 0px;
+  border: 1px solid red;
+  border-radius: 30px;
+  width: 13%;
+  padding-left: 11px;
+  float: right;
+  right: 10px;
+  position: fixed;
+}
+</style>
+<% unless @lesson.learned %>
+  <p id="demo"></p>
+<% end %>
+<h1><%= t :lesson %> <%= @lesson.id %></h1>
+<b><%= t :category %></b>
+<%= category_name @lesson %> <br>
+<b><%= t :total_word %></b>
+<%= num_of_word @lesson %> <br>
+<b><%= t :correct_answer %></b>
+<%= count_correct_answer @lesson %> / <%= total_word_in_lesson @lesson %>
+<%= t :word %>
+
+<%= form_for @lesson do |f| %>
+  <%= f.hidden_field :learned, value: true %>
+  <%= f.fields_for :results do |result| %>
+    <%= render "question", f: result %>
+  <% end %>
+  <% if @lesson.learned %>
+      <%= link_to t(:back), @lesson.category, class: "btn btn-primary" %>
+  <% else %>
+    <div class="col-sm-2">
+      <%= f.submit t(:finish), class: "btn btn-primary", id: "btn-submit" %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date();
+countDownDate = countDownDate.setMinutes( countDownDate.getMinutes() + 1 );
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    $("#btn-submit").click();
+  }
+}, 1000);
+</script>

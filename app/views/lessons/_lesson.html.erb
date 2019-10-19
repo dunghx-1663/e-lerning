@@ -1,0 +1,25 @@
+<% @lessons.each_with_index do |lesson, index| %>
+  <tr>
+    <td><%= create_index params[:page], index, Settings.word_per_page %></td>
+    <td><%= lesson.created_at %></td>
+    <td><%= category_name lesson %></td>
+    <td>
+      <% if lesson.learned %>
+        <span class="label label-success">
+          <%= t :finished %>
+        </span>
+      <% else %>
+        <span class="label label-info">
+          <%= t :open %>
+        </span>
+      <% end %>
+    </td>
+    <td><%= count_correct_answer lesson %> / <%= total_word_in_lesson lesson %></td>
+    <td>
+      <% if lesson.learned %>
+        <%= link_to t(:view), lesson, class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to t(:start), lesson, class: "btn btn-primary" %>
+      <% end %>
+    </td>
+<% end %>

@@ -1,0 +1,10 @@
+<h1><%= t :all_users %></h1>
+<ul class="users">
+  <% @users.each_with_index do |user, index| %>
+    <li>
+      <td><%= create_index params[:page], index, Settings.word_per_page %></td>&nbsp&nbsp&nbsp
+      <%= gravatar_for user, size: Settings.ava_size %>
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>

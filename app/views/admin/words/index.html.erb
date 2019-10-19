@@ -1,0 +1,39 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <h1><%= t :all_word %></h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+      <%= search_form_for [:admin, @q] do |f| %>
+        <%= f.text_field :content_cont, placeholder: t(:search_by_content),
+          class: "form-control" %>
+        <%= f.submit t(:search), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+    <br>
+    <%= link_to t(:create_word), new_admin_word_url, class: "btn btn-primary" %>
+      <div class="card-body">
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable">
+            <thead>
+              <tr>
+                <th><%= t :index %></th>
+                <th><%= t :content %></th>
+                <th><%= t :category %></th>
+                <th><%= t :action %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: "word" %>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center">
+          <%= paginate @words %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

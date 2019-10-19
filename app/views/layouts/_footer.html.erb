@@ -1,0 +1,9 @@
+<footer class="footer">
+  <% if user_signed_in? %>
+    <p>
+      <%= t :last_sign_in %>
+      <%= l current_user.last_sign_in_at, format: :date_month_year %>
+    </p>
+    <p><%= t :current_ip %> <%= current_user.current_sign_in_ip %></p>
+  <% end %>
+</footer>

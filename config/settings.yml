@@ -1,0 +1,17 @@
+category_name: 50
+category_des: 300
+cate_per_page: 6
+lesson_per_page: 10
+ava_size: 50
+cate_per_page: 6
+word_limit: 10
+word_per_page: 10
+user_per_page: 10
+word_per_page: 10
+word_content: 8
+word_meaning: 8
+filter_options:
+  - alls
+  - learned
+  - not_learned
+a_answer_correct: 1

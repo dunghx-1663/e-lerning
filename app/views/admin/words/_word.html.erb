@@ -1,0 +1,12 @@
+<% @words.each_with_index do |word, index| %>
+  <tr>
+    <td><%= create_index params[:page], index, Settings.word_per_page %></td>
+    <td><%= word.content %></td>
+    <td><%= word.category.name %></td>
+    <td>
+      <%= link_to t(:edit), edit_admin_word_path(word), class: "btn btn-primary" %>
+      <%= link_to t(:delete), admin_word_path(word), class: "btn btn-danger",
+        method: :delete, data: { confirm: t(:sure)}  %>
+    </td>
+  </tr>
+<% end %>

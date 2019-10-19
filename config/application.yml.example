@@ -1,0 +1,5 @@
+development: <%= ENV["DEVELOPMENT"] %>
+test: <%= ENV["TEST"] %>
+production: <%= ENV["PRODUCTION"] %>
+username: <%= ENV["MUSERNAME"] %>
+password: <%= ENV["PASSWORD"] %>

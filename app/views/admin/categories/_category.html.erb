@@ -1,0 +1,11 @@
+<% @categories.each_with_index do |category, index| %>
+  <tr>
+    <td><%= create_index params[:page], index, Settings.cate_per_page %></td>
+    <td><%= category.name %></td>
+    <td>
+      <%= link_to t(:edit), edit_admin_category_path(category), class: "btn btn-primary" %>
+      <%= link_to t(:delete), admin_category_path(category), class: "btn btn-danger",
+        method: :delete, data: { confirm: t(:sure)}  %>
+    </td>
+  </tr>
+<% end %>

@@ -1,0 +1,4 @@
+<%= t :done_lesson %> <%= category_name @lesson %>
+<%= t :here_is_your_result %>
+<%= total_correct_answer @lesson %> / <%= total_word_in_lesson @lesson %>
+<%= t :click_to_view_detail%> <%= link_to t(:details), @lesson%>

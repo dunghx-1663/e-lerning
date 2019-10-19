@@ -1,0 +1,12 @@
+<% @words.each_with_index do |word, index| %>
+  <tr>
+    <td><%= create_index params[:page], index, Settings.word_per_page %></td>
+    <td><%= word.content %></td>
+    <td><%= word.category.name %></td>
+    <% if word.answers.any? %>
+      <td><%= correct_answer word %></td>
+    <% else %>
+      <td><%= t :na %></td>
+    <% end %>
+  </tr>
+<% end %>

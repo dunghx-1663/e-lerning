@@ -1,0 +1,38 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <h1><%= t :all_users %></h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+      <%= search_form_for [:admin, @q] do |f| %>
+        <%= f.text_field :name_or_email_cont, placeholder: t(:search_by_name_or_email),class: "form-control" %>
+        <%= f.submit t(:search), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+    <br>
+    <%= link_to t(:create_user), new_admin_user_url, class: "btn btn-primary" %>
+      <div class="card-body">
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable">
+            <thead>
+              <tr>
+                <th><%= t :index %></th>
+                <th><%= t :name %></th>
+                <th><%= t :email %></th>
+                <th><%= t :action %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: "user" %>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center">
+          <%= paginate @users %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

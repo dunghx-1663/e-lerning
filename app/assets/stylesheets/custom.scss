@@ -1,0 +1,188 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "color";
+
+@mixin box_sizing {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: gray;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+.logo {
+  color: white;
+  float: left;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin-right: 10px;
+  padding-top: 9px;
+  text-transform: uppercase;
+}
+
+.logo:hover {
+  color: white;
+  text-decoration: none;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 75%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    float: left;
+    padding: 0 10px;
+    &:first-child {
+      border: 0;
+      padding-left: 30px;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    border-bottom: 1px solid $gray-lighter;
+    overflow: auto;
+    padding: 10px 0;
+  }
+}
+
+.choose {
+  margin-left: -430px !important;
+}
+
+.input-group-addon {
+  width: 150px !important;
+}
+
+.scrollbar
+{
+  height: 200px;
+  background: $white_smoke;
+  overflow-y: scroll;
+  margin-top: 200px;
+}
+
+input#check_box {
+  width: 100px;
+}
+
+input#answer-form {
+  width: 200px;
+  margin-right: 10px;
+  text-indent: 10px;
+}
+
+p.fields {
+  margin-top: 10px;
+}
+
+input#word_content {
+  margin-bottom: 10px;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+select#word_category_id {
+  margin-bottom: 10px;
+}
+
+input.btn.btn-primary {
+  width: 150px;
+}
+
+input#option_not_learned {
+  margin-left: 10px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+.footer p {
+  float: left;
+  margin-left: 10px;
+}

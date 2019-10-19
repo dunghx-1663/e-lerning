@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.4.1"
 
 gem "bootsnap", ">= 1.1.0", require: false
-gem "bootstrap-sass", "3.3.7"
+gem "bootstrap-sass", "3.4.1"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "delayed_job_active_record"
